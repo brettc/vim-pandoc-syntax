@@ -331,6 +331,12 @@ call s:WithConceal("hrule", 'syn match pandocHRule /^\s\{,3}\([-*_]\s*\)\{3,}\n/
 call s:WithConceal("quotes", 'syn match pandocBeginQuote /"\</  containedin=pandocEmphasis,pandocStrong', 'conceal cchar=“')
 call s:WithConceal("quotes", 'syn match pandocEndQuote /\(\>[[:punct:]]*\)\@<="/  containedin=pandocEmphasis,pandocStrong', 'conceal cchar=”')
 
+" TODOs: {{{2
+" call s:WithConceal("hrule", 'syn match pandocHRule /^\s\{,3}\([-*_]\s*\)\{3,}\n/', 'conceal cchar='.s:cchars["hr"])
+" syn match
+syn match pandocTODO /TODO:[^.!?]*\%[.?!]/ contains=@Spell,pandocSuperscript,pandocSubscript,pandocUListItem 
+"}}}
+
 " }}}
 "
 " }}}
@@ -458,6 +464,7 @@ if g:pandoc_underline_special_blocks == 1
 endif
 hi link pandocNewLine Error
 hi link pandocHRule Delimiter
+hi link pandocTODO ToDo
 
 "}}}
 
